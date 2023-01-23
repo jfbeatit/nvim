@@ -128,7 +128,7 @@ keymap("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
 
 --Only jump to error
 keymap('n', '<Leader>e', function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, options)
 
 ---- Outline
