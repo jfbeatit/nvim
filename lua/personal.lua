@@ -1,7 +1,7 @@
 local api = vim.api
 
 api.nvim_create_user_command('Pd', function()
-  local cmd = "cd /workspace/www/xunhuawang/admin/frontend && pnpm dev"
+  local cmd = "cd /workspace/www/sitehub/admin/frontend && pnpm dev"
   vim.fn.jobstart(cmd, {
     detach = false,
     pty = true,
