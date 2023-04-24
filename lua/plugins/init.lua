@@ -92,13 +92,6 @@ require('packer').startup(function(use)
     end
   }
   use {
-    'romgrk/barbar.nvim',
-    config = function()
-      require('plugins.config.barbar')
-    end,
-    ft = filetypes
-  }
-  use {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('plugins.config.gitsigns')
@@ -149,6 +142,13 @@ require('packer').startup(function(use)
     after = 'nvim-lspconfig'
   }
   use {
+    'glepnir/flybuf.nvim',
+    cmd = 'FlyBuf',
+    config = function()
+      require('flybuf').setup({})
+    end
+  }
+  use {
     'simrat39/rust-tools.nvim',
     config = function()
       require('plugins.config.rust-tools')
@@ -173,10 +173,6 @@ require('packer').startup(function(use)
   use {
     'leafOfTree/vim-vue-plugin',
     ft = 'vue',
-  }
-  use {
-    'StanAngeloff/php.vim',
-    ft = 'php'
   }
   if packer_bootstrap then
     require('packer').sync()

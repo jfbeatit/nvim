@@ -11,6 +11,9 @@ function get_current_workspace()
   return search_dir .. '/' .. sub_path
 end
 
+--for plugin flybuf
+keymap('n', '<C-f>', ':FlyBuf<CR>', options)
+
 --for plugin nvim-tree
 keymap('n', '<C-b>', ':NvimTreeToggle<CR>', options)
 
