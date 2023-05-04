@@ -27,6 +27,9 @@ local filetypes = {
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
+    'nvim-tree/nvim-web-devicons',
+  }
+  use {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup {}
@@ -50,7 +53,6 @@ require('packer').startup(function(use)
   }
   use {
     'nvim-tree/nvim-tree.lua',
-    requires = { 'nvim-tree/nvim-web-devicons' },
     tag = 'nightly',
     config = function()
       require('plugins.config.tree')
