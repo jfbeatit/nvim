@@ -120,7 +120,7 @@ ins_left {
     }
     return { fg = mode_color[vim.fn.mode()] }
   end,
-  padding = { right = 1 },
+  padding = { left = 1,  right = 1 },
 }
 
 ins_left {
@@ -158,13 +158,11 @@ ins_left {
   color = { fg = colors.blue, gui = 'bold' },
 }
 
---[[
 ins_left {
   -- filesize component
   'filesize',
   cond = conditions.buffer_not_empty,
 }
---]]
 
 ins_left { 'location' }
 
