@@ -142,13 +142,6 @@ require('packer').startup(function(use)
     after = 'nvim-lspconfig'
   }
   use {
-    'glepnir/flybuf.nvim',
-    cmd = 'FlyBuf',
-    config = function()
-      require('flybuf').setup({})
-    end
-  }
-  use {
     'simrat39/rust-tools.nvim',
     config = function()
       require('plugins.config.rust-tools')
