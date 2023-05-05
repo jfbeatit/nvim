@@ -21,9 +21,6 @@ vim.g.nobackup = true
 vim.g.nowritebackup = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.cmd([[
-  autocmd FileType php set shiftwidth=4
-]])
 
 define_sign({name = 'DiagnosticSignError', text = ''})
 define_sign({name = 'DiagnosticSignWarn', text = ''})
