@@ -168,16 +168,32 @@ ins_left {
     local msg = 'No Active Lsp'
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
     local clients = vim.lsp.get_active_clients()
+    local results = {}
     if next(clients) == nil then
       return msg
     end
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
+        --return client.name
+        local exists = false
+        for i, x in pairs(results) do
+          if x == client.name then
+            exists = true
+          end
+        end
+        if not exists then
+          table.insert(results, client.name)
+        end
       end
     end
-    return msg
+    --return msg
+    --start
+    if next(results) == nil then
+      return msg
+    end
+    return table.concat(results, ' | ')
+    --end
   end,
   icon = ' ',
   color = { fg = colors.blue, gui = 'bold' },

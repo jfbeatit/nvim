@@ -10,6 +10,8 @@ local ensure_packer = function()
 end
 
 local packer_bootstrap = ensure_packer()
+
+--[[
 local filetypes = {
   'html',
   'css',
@@ -23,6 +25,7 @@ local filetypes = {
   'json',
   'yaml',
 }
+--]]
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
@@ -34,13 +37,16 @@ require('packer').startup(function(use)
     config = function()
       require('nvim-autopairs').setup {}
     end,
+    opt = true,
+    event = 'InsertEnter'
   }
   use {
     'windwp/nvim-ts-autotag',
     config = function()
       require('nvim-ts-autotag').setup()
     end,
-    ft = filetypes
+    opt = true,
+    event = 'InsertEnter'
   }
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -70,14 +76,16 @@ require('packer').startup(function(use)
     config = function()
       require('plugins.config.lualine')
     end,
-    ft = filetypes
+    opt = true,
+    event = 'BufRead'
   }
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require('plugins.config.indent-blankline')
     end,
-    ft = filetypes
+    opt = true,
+    event = 'BufRead'
   }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -128,7 +136,8 @@ require('packer').startup(function(use)
     config = function()
       require('plugins.config.lspconfig')
     end,
-    ft = filetypes
+    opt = true,
+    event = 'BufEnter'
   }
   use {
     "glepnir/lspsaga.nvim",
@@ -136,7 +145,6 @@ require('packer').startup(function(use)
     config = function()
       require('plugins.config.lspsaga')
     end,
-    ft = filetypes,
     after = 'nvim-lspconfig'
   }
   use {
@@ -151,7 +159,8 @@ require('packer').startup(function(use)
     config = function()
       require 'colorizer'.setup()
     end,
-    ft = filetypes
+    opt = true,
+    event = 'BufRead'
   }
   use {
     "iamcco/markdown-preview.nvim",
@@ -166,7 +175,9 @@ require('packer').startup(function(use)
     'Exafunction/codeium.vim',
     config = function()
       require('plugins.config.codeium')
-    end
+    end,
+    opt = true,
+    event = 'BufRead'
   }
   if packer_bootstrap then
     require('packer').sync()
