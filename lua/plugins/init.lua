@@ -11,26 +11,12 @@ end
 
 local packer_bootstrap = ensure_packer()
 
---[[
-local filetypes = {
-  'html',
-  'css',
-  'vue',
-  'javascript',
-  'typescript',
-  'rust',
-  'lua',
-  'php',
-  'markdown',
-  'json',
-  'yaml',
-}
---]]
-
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
     'nvim-tree/nvim-web-devicons',
+    opt = true,
+    event = 'BufEnter'
   }
   use {
     'windwp/nvim-autopairs',
@@ -55,7 +41,9 @@ require('packer').startup(function(use)
     end,
     config = function()
       require('plugins.config.treesitter')
-    end
+    end,
+    opt = true,
+    event = 'BufEnter'
   }
   use {
     'nvim-tree/nvim-tree.lua',
@@ -90,36 +78,48 @@ require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} },
+    opt = true,
+    event = 'BufEnter'
   }
   use {
     'voldikss/vim-floaterm',
     config = function()
       require('plugins.config.floaterm')
-    end
+    end,
+    opt = true,
+    event = 'BufEnter'
   }
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('plugins.config.gitsigns')
-    end
+    end,
+    opt = true,
+    event = 'BufRead'
   }
   use {
     'voldikss/vim-translator',
     config = function()
       require('plugins.config.translator')
-    end
+    end,
+    opt = true,
+    event = 'BufRead'
   }
   use {
     "williamboman/mason.nvim",
     config = function()
       require('mason').setup()
-    end
+    end,
+    opt = true,
+    event = 'BufEnter'
   }
   use {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require('mason-lspconfig').setup()
-    end
+    end,
+    opt = true,
+    event = 'BufEnter'
   }
   use {
     'neovim/nvim-lspconfig',
@@ -145,13 +145,15 @@ require('packer').startup(function(use)
     config = function()
       require('plugins.config.lspsaga')
     end,
-    after = 'nvim-lspconfig'
+    opt = true,
+    event = 'LspAttach',
   }
   use {
     'simrat39/rust-tools.nvim',
     config = function()
       require('plugins.config.rust-tools')
     end,
+    opt = true,
     ft = 'rust',
   }
   use {
@@ -168,6 +170,7 @@ require('packer').startup(function(use)
     setup = function()
       vim.g.mkdp_filetypes = { "markdown" }
     end,
+    opt = true,
     ft = { "markdown" },
   }
   use {
