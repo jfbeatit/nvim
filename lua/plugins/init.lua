@@ -15,16 +15,13 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
     'nvim-tree/nvim-web-devicons',
-    opt = true,
-    event = 'BufEnter'
+    lock = true,
   }
   use {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup {}
     end,
-    opt = true,
-    event = 'InsertEnter'
   }
   use {
     'windwp/nvim-ts-autotag',
@@ -68,12 +65,12 @@ require('packer').startup(function(use)
     event = 'BufRead'
   }
   use {
-    'lukas-reineke/indent-blankline.nvim',
+    'nvimdev/indentmini.nvim',
     config = function()
-      require('plugins.config.indent-blankline')
+      require('plugins.config.indentmini')
     end,
     opt = true,
-    event = 'BufRead'
+    event = 'BufRead',
   }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -86,8 +83,6 @@ require('packer').startup(function(use)
     config = function()
       require('plugins.config.floaterm')
     end,
-    opt = true,
-    event = 'BufEnter'
   }
   use {
     'lewis6991/gitsigns.nvim',
@@ -110,16 +105,12 @@ require('packer').startup(function(use)
     config = function()
       require('mason').setup()
     end,
-    opt = true,
-    event = 'BufEnter'
   }
   use {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require('mason-lspconfig').setup()
     end,
-    opt = true,
-    event = 'BufEnter'
   }
   use {
     'neovim/nvim-lspconfig',
@@ -131,13 +122,12 @@ require('packer').startup(function(use)
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       'rafamadriz/friendly-snippets',
-      'onsails/lspkind.nvim',
+      {'onsails/lspkind.nvim', lock = true},
     },
+    after = 'nvim-autopairs',
     config = function()
       require('plugins.config.lspconfig')
     end,
-    opt = true,
-    event = 'BufEnter'
   }
   use {
     "glepnir/lspsaga.nvim",
@@ -145,15 +135,12 @@ require('packer').startup(function(use)
     config = function()
       require('plugins.config.lspsaga')
     end,
-    opt = true,
-    event = 'LspAttach',
   }
   use {
     'simrat39/rust-tools.nvim',
     config = function()
       require('plugins.config.rust-tools')
     end,
-    opt = true,
     ft = 'rust',
   }
   use {
