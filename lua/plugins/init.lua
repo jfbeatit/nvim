@@ -15,7 +15,6 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
     'nvim-tree/nvim-web-devicons',
-    lock = true,
   }
   use {
     'windwp/nvim-autopairs',
@@ -122,7 +121,7 @@ require('packer').startup(function(use)
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       'rafamadriz/friendly-snippets',
-      {'onsails/lspkind.nvim', lock = true},
+      'onsails/lspkind.nvim',
     },
     after = 'nvim-autopairs',
     config = function()
