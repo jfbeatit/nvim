@@ -196,7 +196,7 @@ ins_left {
     return table.concat(results, ' | ')
     --end
   end,
-  icon = ' ',
+  icon = '',
   color = { fg = colors.blue, gui = 'bold' },
 }
 
