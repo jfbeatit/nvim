@@ -16,12 +16,12 @@ bufferline.setup({
     numbers = 'ordinal',
     indicator = {
       icon = '', -- this should be omitted if indicator style is not 'icon'
-      style = 'underline',
+      style = 'None',
     },
     offsets = {
       {
         filetype = 'NvimTree',
-        text = ' File Explorer',
+        text = ' 󱘎 File Explorer',
         highlight = 'Directory',
         text_align = 'left'
       },
