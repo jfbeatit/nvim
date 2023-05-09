@@ -36,7 +36,7 @@ keymap('n', '<Leader>r', ':LspRestart<CR>', options)
 --for plugin translator
 keymap('n', '<C-y>', ':TranslateW<CR>', options)
 
---for plugin barbar
-keymap('n', '<C-h>', '<Cmd>BufferPrevious<CR>', options)
-keymap('n', '<C-l>', '<Cmd>BufferNext<CR>', options)
-keymap('n', '<C-x>', '<Cmd>BufferClose<CR>', options)
+--for plugin bufferline
+keymap('n', '<C-h>', '<Cmd>BufferLineCyclePrev<CR>', options)
+keymap('n', '<C-l>', '<Cmd>BufferLineCycleNext<CR>', options)
+keymap('n', '<C-x>', '<Cmd>bd!<CR>', options)

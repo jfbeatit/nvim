@@ -14,7 +14,7 @@ local packer_bootstrap = ensure_packer()
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
-    'nvim-tree/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons'
   }
   use {
     'windwp/nvim-autopairs',
@@ -62,6 +62,15 @@ require('packer').startup(function(use)
     end,
     opt = true,
     event = 'BufRead'
+  }
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "*",
+    opt = true,
+    event = 'BufRead',
+    config = function()
+      require('plugins.config.bufferline')
+    end,
   }
   use {
     'nvimdev/indentmini.nvim',
