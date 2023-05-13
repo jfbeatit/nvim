@@ -177,6 +177,11 @@ require('packer').startup(function(use)
     opt = true,
     event = 'BufRead'
   }
+  use {
+    'sbdchd/neoformat',
+    opt = true,
+    ft = { 'vue', 'html', 'javascript', 'typescript', 'css' }
+  }
   if packer_bootstrap then
     require('packer').sync()
   end

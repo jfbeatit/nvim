@@ -11,6 +11,9 @@ function get_current_workspace()
   return search_dir .. '/' .. sub_path
 end
 
+--for neoformat
+keymap('n', 'nf', ':Neoformat<CR>', options)
+
 --for plugin flybuf
 keymap('n', '<C-f>', ':FlyBuf<CR>', options)
 
