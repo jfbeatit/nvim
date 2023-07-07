@@ -63,15 +63,17 @@ require('packer').startup(function(use)
     opt = true,
     event = 'BufRead'
   }
+  --[[
   use {
     'akinsho/bufferline.nvim',
     tag = "*",
     opt = true,
-    event = 'BufRead',
+    event = 'FileNew',
     config = function()
       require('plugins.config.bufferline')
     end,
   }
+  --]]
   use {
     'nvimdev/indentmini.nvim',
     config = function()
