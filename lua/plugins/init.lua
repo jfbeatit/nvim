@@ -134,7 +134,6 @@ require('packer').startup(function(use)
       'rafamadriz/friendly-snippets',
       'onsails/lspkind.nvim',
     },
-    after = 'nvim-autopairs',
     config = function()
       require('plugins.config.lspconfig')
     end,
