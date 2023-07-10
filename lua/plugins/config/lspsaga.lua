@@ -73,10 +73,6 @@ require('lspsaga').setup({
     in_select = true,
     whole_project = true,
   },
-  finder = {
-    default = 'def+ref+imp',
-    layout = 'float'
-  }
 })
 
 local keymap = vim.keymap.set
