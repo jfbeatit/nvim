@@ -12,7 +12,7 @@ function get_current_workspace()
 end
 
 --for neoformat
-keymap('n', 'nf', ':Neoformat<CR>', options)
+keymap('n', 'nf', '<cmd>GuardFmt<CR>', options)
 
 --for plugin flybuf
 keymap('n', '<C-f>', ':FlyBuf<CR>', options)

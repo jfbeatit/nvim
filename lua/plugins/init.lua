@@ -83,10 +83,18 @@ require('packer').startup(function(use)
     event = 'BufRead',
   }
   use {
+    'nvimdev/guard.nvim',
+    config = function()
+      require('plugins.config.guard')
+    end,
+    opt = true,
+    event = 'BufRead',
+  }
+  use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} },
     opt = true,
-    event = 'BufEnter'
+    event = 'BufRead',
   }
   use {
     'voldikss/vim-floaterm',
@@ -177,11 +185,6 @@ require('packer').startup(function(use)
     end,
     opt = true,
     event = 'BufRead'
-  }
-  use {
-    'sbdchd/neoformat',
-    opt = true,
-    ft = { 'vue', 'html', 'javascript', 'typescript', 'css' }
   }
   if packer_bootstrap then
     require('packer').sync()
