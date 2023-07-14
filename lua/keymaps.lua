@@ -1,14 +1,15 @@
 local keymap = vim.api.nvim_set_keymap
 local options = { silent = true }
 
-local search_dir = "/workspace"
-function get_current_workspace()
-  local full_path = vim.api.nvim_buf_get_name(0)
-  local sub_path = string.match(full_path, search_dir .. "/(%w+)/")
-  if not sub_path then
-    return full_path
+function get_root_dir()
+  local path = vim.fn.expand('%:p:h')
+  while path ~= '/' do
+    if vim.fn.glob(path .. '/.git') ~= '' or vim.fn.glob(path .. '/package.json') ~= '' then
+      return path
+    end
+    path = vim.fn.fnamemodify(path, ':h')
   end
-  return search_dir .. '/' .. sub_path
+  return path
 end
 
 --for neoformat
@@ -23,12 +24,9 @@ keymap('n', '<C-b>', ':NvimTreeToggle<CR>', options)
 --for plugin markdown-preview
 keymap('n', '<C-m>', '<Plug>MarkdownPreviewToggle', options)
 
---for plugin SymbolsOutline
---keymap('n', '<Leader>t', ':SymbolsOutline<CR>', options)
-
 --for plugin nvim-telescope
-keymap('n', '<Leader>f', ':lua require("telescope.builtin").find_files({ search_dirs = { get_current_workspace() } })<CR>', options)
-keymap('n', '<Leader>s', ':lua require("telescope.builtin").live_grep({ search_dirs = { get_current_workspace() } })<CR>', options)
+keymap('n', '<Leader>f', ':lua require("telescope.builtin").find_files({ search_dirs = { get_root_dir() } })<CR>', options)
+keymap('n', '<Leader>s', ':lua require("telescope.builtin").live_grep({ search_dirs = { get_root_dir() } })<CR>', options)
 
 --for plugin lsp
 keymap('n', '<Leader>r', ':LspRestart<CR>', options)
