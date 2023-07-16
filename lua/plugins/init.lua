@@ -124,12 +124,14 @@ require('packer').startup(function(use)
       require('mason').setup()
     end,
   }
+  --[[
   use {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require('mason-lspconfig').setup()
     end,
   }
+  --]]
   use {
     'neovim/nvim-lspconfig',
     requires = {

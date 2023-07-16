@@ -44,7 +44,7 @@ local servers = {
   'intelephense',
   'html',
   'cssls',
-  --'tailwindcss',
+  'tailwindcss',
   'jsonls',
 }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
